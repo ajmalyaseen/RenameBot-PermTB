@@ -45,13 +45,7 @@ def send_start(bot, update):
     bot.send_message(
         chat_id=update.chat.id,
         text=script.START_TEXT.format(update.from_user.first_name),
-        reply_markup = InlineKeyboardMarkup([[
-        InlineKeyboardButton('⚠️JOIN', url='https://t.me/Film_Zone_Fz'),
-        InlineKeyboardButton('📕 ABOUT', callback_data="about")
-    ],[
-        InlineKeyboardButton('💡 HELP', callback_data="help"),
-        InlineKeyboardButton('🔐 CLOSE', callback_data='close')
-    ]])
+        reply_markup = InlineKeyboardMarkup
         parse_mode="html",
         disable_web_page_preview=True,
         reply_to_message_id=update.message_id
