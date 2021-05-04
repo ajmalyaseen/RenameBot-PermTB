@@ -23,14 +23,22 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceRepl
 from pyrogram.errors import UserNotParticipant
 
 from plugins.rename_file import rename_doc
-
+buttons = [[
+        InlineKeyboardButton('⚠️JOIN', url='https://t.me/Film_Zone_Fz'),
+        InlineKeyboardButton('📕 ABOUT', callback_data="about")
+    ],[
+        InlineKeyboardButton('💡 HELP', callback_data="help"),
+        InlineKeyboardButton('🔐 CLOSE', callback_data='close')
+    ]]
+    
+    reply_markup = InlineKeyboardMarkup(buttons)
+    
 
 @Client.on_message(filters.command(["help"]))
 def help_user(bot, update):
     bot.send_message(
         chat_id=update.chat.id,
         text=script.HELP_USER,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="⭕️ Contact DEV ⭕️", url="https://t.me/prgofficial")]]),
         parse_mode="html",
         disable_web_page_preview=True,
         reply_to_message_id=update.message_id
